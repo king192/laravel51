@@ -1,0 +1,13 @@
+```
+环境：lnmp<br/>
+官网给出的答案是：<br/>
+try_files $uri $uri/ /index.php?$query_string;<br/>
+然后把根目录设为www/public(www代表根目录)<br/>
+
+但可能是本地集成环境的限制木有成功<br/>
+同时脚步文件目录在站点外也是不好的<br/>
+**解决方案：**<br/>
+把根目录设为www<br/>
+try_files $uri $uri/ /public/index.php?$query_string;<br/>
+
+```
