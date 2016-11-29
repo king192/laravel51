@@ -8,3 +8,20 @@
 8.mysql 外键
 9.javascript new object 随机100元素
 10.mysql和mariadb对比
+select a.id,a.uid,b.username,sum(a.credit) as credit from app_credit as a inner join app_user as b on a.uid = b.id where month(a.createtime) = month(curdate()) and week(a.createtime) = week(curdate())-1 group by uid order by sum(a.credit) desc limit 8;
+
+某时间段内（vote_date为datetime）
+select * from t_apply where date(vote_date) > '2016-05-24' and date(vote_date) < '2016-05-27';
+#///////////////////////////////////////
+select * from t_wx_pay where transaction_id = '4009202001201606117092058338';#记录支付
+select * from t_friendship_vote_record where open_id = 'oxH0ps1EWH2yvysRNeS6Ii9exugM';
+select * from t_friendship_vote_record where id = '77f72afaed164cb08a960471acc71367';
+select * from t_vote_user_for_group where open_id = 'oxH0ps1EWH2yvysRNeS6Ii9exugM';
+#-------------------------------
+update t_apply set current_vote_count = (current_vote_count+30),total_vote_count = (total_vote_count+30) where wx_group_num = '10000405';#群主增加票数
+update t_vote_user_for_group set current_vote = (current_vote+30) where open_id = 'oxH0ps1EWH2yvysRNeS6Ii9exugM' and wx_group_num = '10000405';
+#用户增加票数
+
+insert into `t_friendship_vote_record` (id,wx_group_num,wx_group_name,nick_name,create_date,open_id,vote_num) values ('77f72afaed164cb08a960471acc71367','10000405','乡里乡情','莫问','2016-06-11 10:59:38','oxH0ps1EWH2yvysRNeS6Ii9exugM',30);#增加后台记录20160529070658
+
+update t_vote_user set total_integral = (total_integral+30),current_integral=(current_integral+30) where open_id = 'oxH0ps1EWH2yvysRNeS6Ii9exugM';#增加用户积分

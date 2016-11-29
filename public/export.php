@@ -7,7 +7,9 @@
 header("Content-type:application/vnd.ms-excel");
 header("Content-Disposition:filename=xls_data.xls");
 // header("Content-type:text/html;charset=utf-8"); //测试启用
-  
+//   header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+// header('Content-Disposition: attachment;filename="a.xlsx"');
+header('Cache-Control: max-age=0');
 $dbhost = 'localhost';
 $dbname = 'test1';       //所在数据库名
 $dbuser = 'root';
