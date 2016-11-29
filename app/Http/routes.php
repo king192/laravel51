@@ -100,3 +100,4 @@ Route::get('blade', function () {
 });
 
 Route::controller('makecss','css\makecssController');
+Route::controller('effect','css\testController');
